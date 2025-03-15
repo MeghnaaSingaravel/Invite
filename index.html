@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet 16 Invitation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ffe4e1, #ffcccb);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 300px;
+            width: 90%;
+            padding: 20px;
+            background: #fff;
+           
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1, h2 {
+            font-size: 2em;
+            color: #151e3d;
+        }
+
+        p {
+            font-size: 1em;
+            margin: 20px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            margin: 10px;
+            padding:3px 20px;
+            font-size: 1em;
+            color: #fff;
+            background: #151e3d;
+            text-decoration: none;
+            
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #ffe4e1;
+            color: #151e3d;
+        }
+
+        #final-invite {
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="initial-invite" class="container">
+       
+        <h1>05.04.2025</h1>
+        <p>Can you come?</p>
+        <button class="btn" onclick="handleResponse('yes')">Yes</button>
+        <button class="btn" onclick="handleResponse('no')">No</button>
+    </div>
+
+    <div id="final-invite" class="container">
+        
+        <h2>Details</h2>
+        <p><strong>Date:</strong> April 5, 2025</p>
+        <p><strong>Time:</strong> 4:00 - 8:00</p>
+        <p><strong>Location:</strong> Azaiba beach, Muscat</p>
+        <p><strong>Dress Code:</strong> White or Beige </p>
+        
+    </div>
+
+    <script>
+        function handleResponse(response) {
+            if (response === 'yes') {
+                document.getElementById('initial-invite').style.display = 'none';
+                document.getElementById('final-invite').style.display = 'block';
+            } else {
+                const newButton = document.createElement('button');
+                newButton.textContent = 'Yes';
+                newButton.className = 'btn';
+                newButton.onclick = () => handleResponse('yes');
+                document.getElementById('initial-invite').appendChild(newButton);
+            }
+        }
+    </script>
+</body>
+</html>
